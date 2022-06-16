@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TabelaDadosComponent } from './tabela-dados/tabela-dados.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TabelaDadosComponent
   ],
   imports: [
     BrowserModule,
