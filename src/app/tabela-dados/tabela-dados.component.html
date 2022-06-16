@@ -9,16 +9,33 @@
       <tr mdbTableCol *ngFor="let people of listOfpeople">
         <td>{{ people.name }}</td>
         <td>{{ people.height }}</td>
+        <td>{{ people.mass }}</td>
         <td>{{ people.hair_color }}</td>
         <td>{{ people.skin_color }}</td>
         <td>{{ people.eye_color }}</td>
         <td>{{ people.birth_year }}</td>
         <td>{{ people.gender }}</td>
         <td>{{ people.homeworld }}</td>
-        <td>{{ people.films }}</td>
-        <td>{{ people.species }}</td>
-        <td>{{ people.vehicles }}</td>
-        <td>{{ people.starships }}</td>
+        <td>
+            <ul *ngFor="let film of people.films">
+                <li>{{ film }}</li>
+            </ul>
+        </td>
+        <td>
+            <ul *ngFor="let species of people.species">
+                <li>{{ species }}</li>
+            </ul>
+        </td>
+        <td>
+            <ul *ngFor="let vehicles of people.vehicles">
+                <li>{{ vehicles }}</li>
+            </ul>
+        </td>
+        <td>
+            <ul *ngFor="let starships of people.starships">
+                <li>{{ starships }}</li>
+            </ul>
+        </td>
       </tr>
     </tbody>
   </table>

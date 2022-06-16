@@ -12,6 +12,7 @@ export class TabelaDadosComponent {
   headElements: string[] = [
     'name',
     'height',
+    'mass',
     'hair color',
     'skin color',
     'eye color',
