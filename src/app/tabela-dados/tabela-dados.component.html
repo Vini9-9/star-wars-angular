@@ -6,11 +6,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let el of elements">
-        <th scope="row">{{ el.id }}</th>
-        <td>{{ el.first }}</td>
-        <td>{{ el.last }}</td>
-        <td>{{ el.handle }}</td>
+      <tr mdbTableCol *ngFor="let people of listOfpeople">
+        <td>{{ people.name }}</td>
+        <td>{{ people.height }}</td>
+        <td>{{ people.hair_color }}</td>
+        <td>{{ people.skin_color }}</td>
+        <td>{{ people.eye_color }}</td>
+        <td>{{ people.birth_year }}</td>
+        <td>{{ people.gender }}</td>
+        <td>{{ people.homeworld }}</td>
+        <td>{{ people.films }}</td>
+        <td>{{ people.species }}</td>
+        <td>{{ people.vehicles }}</td>
+        <td>{{ people.starships }}</td>
       </tr>
     </tbody>
   </table>
