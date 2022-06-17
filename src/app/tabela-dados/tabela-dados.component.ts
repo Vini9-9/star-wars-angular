@@ -1,6 +1,7 @@
 import { People, PeopleResult } from './../entities/people/people.model';
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../entities/people/people.service';
+// import { readFile } from 'fs';
 
 @Component({
   selector: 'app-tabela-dados',
@@ -10,20 +11,26 @@ import { PeopleService } from '../entities/people/people.service';
 export class TabelaDadosComponent {
   listOfpeople: People[] = [];
   headElements: string[] = [
+    'photo',
     'name',
-    'height',
-    'mass',
-    'hair color',
-    'skin color',
-    'eye color',
-    'birth year',
-    'gender',
-    'homeworld',
     'films',
-    'species',
-    'vehicles',
-    'starships'
   ];
+  charactersUrl: string = '.././assets/characters/'; 
+  // headElements: string[] = [
+  //   'name',
+  //   'height',
+  //   'mass',
+  //   'hair color',
+  //   'skin color',
+  //   'eye color',
+  //   'birth year',
+  //   'gender',
+  //   'homeworld',
+  //   'films',
+  //   'species',
+  //   'vehicles',
+  //   'starships'
+  // ];
 
   constructor(private peopleService: PeopleService) { 
     this.showAllPeople()
@@ -32,7 +39,6 @@ export class TabelaDadosComponent {
   showAllPeople() {
     this.peopleService.getAllPeople().subscribe(
       (listOfpeople: PeopleResult) => {
-        console.log(listOfpeople.results[0])
         // this.headElements = Object.keys(listOfpeople.results[0])
         this.listOfpeople = listOfpeople.results
       } );

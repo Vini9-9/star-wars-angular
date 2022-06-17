@@ -1,5 +1,5 @@
-<p>tabela-dados works!</p>
-<table mdbTable>
+<table mdbTable bordered="true">
+  <caption>Star wars characters and films</caption>
     <thead>
       <tr>
         <th *ngFor="let head of headElements" scope="col">{{ head }} </th>
@@ -7,21 +7,27 @@
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let people of listOfpeople">
-        <td>{{ people.name }}</td>
-        <td>{{ people.height }}</td>
+        <td class="characterImage">
+          <!-- [style.background-image]="'url(&quot;'+ charactersUrl + people.name + '.jpg&quot;)'" -->
+          <img src="{{charactersUrl + people.name}}.jpg"/>
+        </td>
+        <td class="characterName">
+          {{ people.name }}
+        </td>
+        <!-- <td>{{ people.height }}</td>
         <td>{{ people.mass }}</td>
         <td>{{ people.hair_color }}</td>
         <td>{{ people.skin_color }}</td>
         <td>{{ people.eye_color }}</td>
         <td>{{ people.birth_year }}</td>
         <td>{{ people.gender }}</td>
-        <td>{{ people.homeworld }}</td>
+        <td>{{ people.homeworld }}</td> -->
         <td>
             <ul *ngFor="let film of people.films">
                 <li>{{ film }}</li>
             </ul>
         </td>
-        <td>
+        <!-- <td>
             <ul *ngFor="let species of people.species">
                 <li>{{ species }}</li>
             </ul>
@@ -35,7 +41,7 @@
             <ul *ngFor="let starships of people.starships">
                 <li>{{ starships }}</li>
             </ul>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>
