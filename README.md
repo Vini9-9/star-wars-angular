@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - [X] Criar componente tabela de dados;
 - [X] Integrar com [API de star wars](https://swapi.dev/api/);
+- [X] Criar um componente para a lista de titulo de filmes;
 
 ## Development server
 
