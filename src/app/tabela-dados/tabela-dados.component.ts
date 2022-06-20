@@ -1,3 +1,5 @@
+import { Films, FilmsResult } from './../entities/films/films.model';
+import { FilmsService } from './../entities/films/films.service';
 import { People, PeopleResult } from './../entities/people/people.model';
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../entities/people/people.service';
@@ -8,14 +10,18 @@ import { PeopleService } from '../entities/people/people.service';
   templateUrl: './tabela-dados.component.html',
   styleUrls: ['./tabela-dados.component.css']
 })
-export class TabelaDadosComponent {
-  listOfpeople: People[] = [];
-  headElements: string[] = [
-    'photo',
+export class TabelaDadosComponent implements OnInit{
+  listOfPeople: People[] = [];
+  headElementsPeople: string[] = [
+    // 'photo',
     'name',
     'films',
   ];
   charactersUrl: string = '.././assets/characters/'; 
+  displayTable: any = {
+    people: '',
+    films: 'none',
+  };
   // headElements: string[] = [
   //   'name',
   //   'height',
@@ -33,14 +39,17 @@ export class TabelaDadosComponent {
   // ];
 
   constructor(private peopleService: PeopleService) { 
+    
+  }
+
+  ngOnInit(): void {
     this.showAllPeople()
   }
 
   showAllPeople() {
     this.peopleService.getAllPeople().subscribe(
       (listOfpeople: PeopleResult) => {
-        // this.headElements = Object.keys(listOfpeople.results[0])
-        this.listOfpeople = listOfpeople.results
+        this.listOfPeople = listOfpeople.results
       } );
   }
 

@@ -1,47 +1,23 @@
-<table mdbTable bordered="true">
-  <caption>Star wars characters and films</caption>
+<h1 id="title">Star wars characters and films</h1>
+<div class="content">
+  <table mdbTable bordered="true" [style.display]='displayTable.people'>
     <thead>
       <tr>
-        <th *ngFor="let head of headElements" scope="col">{{ head }} </th>
+        <th *ngFor="let head of headElementsPeople" scope="col">{{ head }} </th>
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let people of listOfpeople">
-        <td class="characterImage">
-          <!-- [style.background-image]="'url(&quot;'+ charactersUrl + people.name + '.jpg&quot;)'" -->
-          <img src="{{charactersUrl + people.name}}.jpg"/>
-        </td>
+      <tr mdbTableCol *ngFor="let people of listOfPeople">
+        <!-- <td class="characterImage">
+          <img src="{{charactersUrl + people.name}}.jpg" />
+        </td> -->
         <td class="characterName">
           {{ people.name }}
         </td>
-        <!-- <td>{{ people.height }}</td>
-        <td>{{ people.mass }}</td>
-        <td>{{ people.hair_color }}</td>
-        <td>{{ people.skin_color }}</td>
-        <td>{{ people.eye_color }}</td>
-        <td>{{ people.birth_year }}</td>
-        <td>{{ people.gender }}</td>
-        <td>{{ people.homeworld }}</td> -->
         <td>
-            <ul *ngFor="let film of people.films">
-                <li>{{ film }}</li>
-            </ul>
+          <app-films-list films="{{people.films}}"></app-films-list>
         </td>
-        <!-- <td>
-            <ul *ngFor="let species of people.species">
-                <li>{{ species }}</li>
-            </ul>
-        </td>
-        <td>
-            <ul *ngFor="let vehicles of people.vehicles">
-                <li>{{ vehicles }}</li>
-            </ul>
-        </td>
-        <td>
-            <ul *ngFor="let starships of people.starships">
-                <li>{{ starships }}</li>
-            </ul>
-        </td> -->
       </tr>
     </tbody>
   </table>
+</div>
