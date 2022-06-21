@@ -3,7 +3,8 @@ import { FilmsService } from './../entities/films/films.service';
 import { People, PeopleResult } from './../entities/people/people.model';
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../entities/people/people.service';
-// import { readFile } from 'fs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalListComponent } from '../modal-list/modal-list.component';
 
 @Component({
   selector: 'app-tabela-dados',
@@ -38,7 +39,7 @@ export class TabelaDadosComponent implements OnInit{
   //   'starships'
   // ];
 
-  constructor(private peopleService: PeopleService) { 
+  constructor(private peopleService: PeopleService, private modalService: NgbModal) { 
     
   }
 
@@ -51,6 +52,11 @@ export class TabelaDadosComponent implements OnInit{
       (listOfpeople: PeopleResult) => {
         this.listOfPeople = listOfpeople.results
       } );
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalListComponent);
+    modalRef.componentInstance.name = 'World';
   }
 
 }
