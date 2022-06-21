@@ -1,10 +1,7 @@
 <div>
-    <div class="modal-header">
-        <h4 class="modal-title">Hi there!</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">X</button>
-    </div>
     <div class="modal-body">
-        <p>Hello, {{name}}!</p>
+        <p>See below the films that <b>{{name}}</b> participated:</p>
+        <app-films-list films="{{films}}"></app-films-list>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

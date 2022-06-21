@@ -8,6 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalListComponent implements OnInit {
   @Input() name: string | undefined;
+  @Input() films: string[] | undefined;
 
   constructor(public activeModal: NgbActiveModal) {}
 

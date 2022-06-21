@@ -54,9 +54,10 @@ export class TabelaDadosComponent implements OnInit{
       } );
   }
 
-  openModal() {
-    const modalRef = this.modalService.open(ModalListComponent);
-    modalRef.componentInstance.name = 'World';
+  openModal(name: string, data: string[]) {
+    const modalRef = this.modalService.open(ModalListComponent, {backdrop: false, centered: true});
+    modalRef.componentInstance.name = name;
+    modalRef.componentInstance.films = data;
   }
 
 }
