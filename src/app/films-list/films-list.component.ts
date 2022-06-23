@@ -10,7 +10,6 @@ import { FilmsService } from '../entities/films/films.service';
 export class FilmsListComponent implements OnInit {
   @Input() films: string | undefined;
   listFilms: string[] | undefined;
-  // ---------------------
   listOfFilms: Films[] = [];
   listOfTitles: string[] = [];
 
