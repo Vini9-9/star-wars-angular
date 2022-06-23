@@ -1,25 +1,21 @@
-<h1 id="title">Star wars characters and films</h1>
+<h1 id="title"> List of users of system </h1>
 <div class="content">
-  <table mdbTable bordered="true" [style.display]='displayTable.people'>
+  <table mdbTable bordered="true">
     <thead>
       <tr>
-        <th *ngFor="let head of headElementsPeople" scope="col">{{ head }} </th>
+        <th *ngFor="let head of headElements" scope="col">{{ head }} </th>
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let people of listOfPeople">
-        <!-- <td class="characterImage">
-          <img src="{{charactersUrl + people.name}}.jpg" />
-        </td> -->
+      <tr mdbTableCol *ngFor="let data of listOfData">
         <td class="characterName">
-          {{ people.name }}
+          {{ data.id }}
         </td>
         <td>
-          <button type="button" class="btn btn-info" data-backdrop="false" 
-           (click)="openModal(people.name, people.films)">
-            See the films
-          </button>
-          <!-- <app-films-list films="{{people.films}}"></app-films-list> -->
+          {{ data.name }}
+        </td>
+        <td>
+          {{ data.email }}
         </td>
       </tr>
     </tbody>

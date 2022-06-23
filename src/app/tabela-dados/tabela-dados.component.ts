@@ -1,3 +1,4 @@
+import { UserService } from './../entities/users/users.service';
 import { Films, FilmsResult } from './../entities/films/films.model';
 import { FilmsService } from './../entities/films/films.service';
 import { People, PeopleResult } from './../entities/people/people.model';
@@ -5,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../entities/people/people.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalListComponent } from '../modal-list/modal-list.component';
+import { User } from '../entities/users/users.model';
 
 @Component({
   selector: 'app-tabela-dados',
@@ -12,45 +14,26 @@ import { ModalListComponent } from '../modal-list/modal-list.component';
   styleUrls: ['./tabela-dados.component.css']
 })
 export class TabelaDadosComponent implements OnInit{
-  listOfPeople: People[] = [];
-  headElementsPeople: string[] = [
-    // 'photo',
+  listOfData: User[] = [];
+  headElements: string[] = [
+    'id',
     'name',
-    'films',
+    'email',
   ];
-  charactersUrl: string = '.././assets/characters/'; 
-  displayTable: any = {
-    people: '',
-    films: 'none',
-  };
-  // headElements: string[] = [
-  //   'name',
-  //   'height',
-  //   'mass',
-  //   'hair color',
-  //   'skin color',
-  //   'eye color',
-  //   'birth year',
-  //   'gender',
-  //   'homeworld',
-  //   'films',
-  //   'species',
-  //   'vehicles',
-  //   'starships'
-  // ];
 
-  constructor(private peopleService: PeopleService, private modalService: NgbModal) { 
+  constructor(private userService: UserService, private modalService: NgbModal) { 
     
   }
 
   ngOnInit(): void {
-    this.showAllPeople()
+    this.showAllUsers()
   }
 
-  showAllPeople() {
-    this.peopleService.getAllPeople().subscribe(
-      (listOfpeople: PeopleResult) => {
-        this.listOfPeople = listOfpeople.results
+  showAllUsers() {
+    this.userService.getAllUsers().subscribe(
+      (listOfUsers: User[]) => {
+        console.log('listOfUsers:', listOfUsers)
+        this.listOfData = listOfUsers
       } );
   }
 
