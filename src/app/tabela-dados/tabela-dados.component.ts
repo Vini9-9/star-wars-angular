@@ -1,12 +1,7 @@
+import { User } from './../entities/users/users.model';
 import { UserService } from './../entities/users/users.service';
-import { Films, FilmsResult } from './../entities/films/films.model';
-import { FilmsService } from './../entities/films/films.service';
-import { People, PeopleResult } from './../entities/people/people.model';
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../entities/people/people.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalListComponent } from '../modal-list/modal-list.component';
-import { User } from '../entities/users/users.model';
 
 @Component({
   selector: 'app-tabela-dados',
@@ -19,9 +14,20 @@ export class TabelaDadosComponent implements OnInit{
     'id',
     'name',
     'email',
+    'password'
   ];
 
-  constructor(private userService: UserService, private modalService: NgbModal) { 
+  nomeUsuario ='';
+  emailUsuario ='';
+  senhaUsuario = '';
+  usuario: User = {
+    id: 1,
+    name: '',
+    email: '',
+    password: ''
+  };
+
+  constructor(private userService: UserService) { 
     
   }
 
@@ -32,15 +38,31 @@ export class TabelaDadosComponent implements OnInit{
   showAllUsers() {
     this.userService.getAllUsers().subscribe(
       (listOfUsers: User[]) => {
-        console.log('listOfUsers:', listOfUsers)
         this.listOfData = listOfUsers
       } );
   }
 
-  openModal(name: string, data: string[]) {
-    const modalRef = this.modalService.open(ModalListComponent, {backdrop: false, centered: true});
-    modalRef.componentInstance.name = name;
-    modalRef.componentInstance.films = data;
+  atualizar():void{
+    const usuario:User = {
+      id: 1,
+      name: this.nomeUsuario,
+      email: this.emailUsuario,
+      password: this.senhaUsuario
+    }
+    alert(this.nomeUsuario + ' ' + this.emailUsuario + ' ' + this.senhaUsuario)
+    // this.userService.updateUser(usuario).subscribe
+    // (
+    //   resposta => {
+    //     alert("Usuario Salvo!")
+    //   }, errors => {
+    //     console.log('deu ruim: '+ errors);
+    //   }
+    // );
   }
 
+  limpar():void{
+    this.nomeUsuario ='';
+    this.emailUsuario ='';
+    this.senhaUsuario ='';
+  }
 }

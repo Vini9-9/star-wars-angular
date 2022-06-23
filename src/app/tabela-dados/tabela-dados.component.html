@@ -1,3 +1,15 @@
+<form (ngSubmit)="atualizar()" id="form">
+  <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
+  <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
+  <input id="senhaUsuario" name="senhaUsuario" type="text" [(ngModel)]="senhaUsuario" #name="ngModel" placeholder="Insira a senha"/>
+  <button type="submit">
+    Salvar
+  </button>
+  <button type="button" (click)="limpar()">
+    Limpar
+  </button>
+</form>
+
 <h1 id="title"> List of users of system </h1>
 <div class="content">
   <table mdbTable bordered="true">
@@ -8,7 +20,7 @@
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let data of listOfData">
-        <td class="characterName">
+        <td>
           {{ data.id }}
         </td>
         <td>
@@ -16,6 +28,9 @@
         </td>
         <td>
           {{ data.email }}
+        </td>
+        <td>
+          {{ data.password }}
         </td>
       </tr>
     </tbody>
