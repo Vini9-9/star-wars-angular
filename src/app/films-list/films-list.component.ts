@@ -9,9 +9,7 @@ import { FilmsService } from '../entities/films/films.service';
 })
 export class FilmsListComponent implements OnInit {
   @Input() films: string | undefined;
-  titleFilm: string = '';
   listFilms: string[] | undefined;
-  titlesFilms: string[] = [];
   // ---------------------
   listOfFilms: Films[] = [];
   listOfTitles: string[] = [];
@@ -22,23 +20,10 @@ export class FilmsListComponent implements OnInit {
     if(this.films != undefined){
       this.listFilms = this.films.split(',');
       this.getAllFilms()
-      // this.getTitlesByUrl(this.listFilms)
     }
   }
 
-  async getTitlesByUrl(listFilms: string[]){
-    console.time("api");
-    listFilms.forEach(urlFilm => {
-      this.filmsService.getFilmById(urlFilm).subscribe(
-        (film: Films) => {
-          this.titlesFilms.push(film.title);
-        } );
-      });
-        console.timeEnd("api");
-  }
-
   getAllFilms() {
-    console.time("filter");
     this.filmsService.getAllFilms().subscribe(
       (listOfFilms: FilmsResult) => {
         this.listOfFilms = listOfFilms.results.filter((el) => {
@@ -46,7 +31,6 @@ export class FilmsListComponent implements OnInit {
         })
         this.listOfTitles = this.listOfFilms.map((el) => el.title)
       } );
-        console.timeEnd("filter");
   }
 
 }
