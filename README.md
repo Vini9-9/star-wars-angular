@@ -4,10 +4,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Tasks
 
+Integração API externa:
 - [X] Criar componente tabela de dados;
 - [X] Integrar com [API de star wars](https://swapi.dev/api/);
 - [X] Criar um componente para a lista de titulo de filmes;
 - [X] Criar um botão que chama um modal com os filmes da cada pessoa;
+
+Integração API local:
+- [X] Ler usuários da minha api de star wars;
+- [ ] Criar usuários para minha api de star wars;
+- [ ] Atualizar usuários da minha api de star wars;
+- [ ] Deletar usuários da minha api de star wars;
 
 ## Development server
 
