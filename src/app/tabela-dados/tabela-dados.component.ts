@@ -83,4 +83,16 @@ export class TabelaDadosComponent implements OnInit{
     );
   }
 
+  deletar() {
+    this.userService.deleteUser(this.idUsuario).subscribe
+    (
+      resposta => {
+        alert("Usuario Deletado!")
+      }, errors => {
+        console.log('deu ruim:');
+        console.log(errors);
+      }
+    );
+  }
+
 }
