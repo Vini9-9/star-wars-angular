@@ -8,19 +8,17 @@
       {{option}}
     </mat-radio-button>
   </mat-radio-group>
-  <div>Your option selected is: <b> {{optionSelected}} </b></div>
 </div>
 
 
 <div *ngIf="optionSelected == 'Create'">
-  
   <form (ngSubmit)="criar()" id="form">
-    <label>Forms Create</label>
+    <h1>Forms Create</h1>
     <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
     <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
     <div class="buttons-option">
       <button type="submit">
-        Salvar
+        Criar
       </button>
       <button type="button" (click)="limpar()">
         Limpar
@@ -28,16 +26,17 @@
     </div>
   </form>
 </div>
-<p *ngIf="optionSelected == 'Delete'">Forms Delete</p>
+
 <div *ngIf="optionSelected == 'Update'">
   <form (ngSubmit)="atualizar()" id="form">
-    <label>Forms Update</label>
+    <h1>Forms Update</h1>
+    <label>Id to update:</label>
     <input id="idUsuario" name="idUsuario" type="number" [(ngModel)]="idUsuario" #name="ngModel" placeholder="Insira o id"/>
     <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
     <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
     <div class="buttons-option">
       <button type="submit">
-        Salvar
+        Atualizar
       </button>
       <button type="button" (click)="limpar()">
         Limpar
@@ -46,7 +45,21 @@
   </form>
 </div>
 
-
+<div *ngIf="optionSelected == 'Delete'">
+  <form (ngSubmit)="criar()" id="form">
+    <h1>Forms Delete</h1>
+    <label>Id to delete:</label>
+    <input id="idUsuario" name="idUsuario" type="number" [(ngModel)]="idUsuario" #name="ngModel" placeholder="Insira o id"/>
+    <div class="buttons-option">
+      <button type="submit">
+        Deletar
+      </button>
+      <button type="button" (click)="limpar()">
+        Limpar
+      </button>
+    </div>
+  </form>
+</div>
 
 <h1 id="title"> List of users of system </h1>
 <div class="content">
