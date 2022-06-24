@@ -44,7 +44,22 @@ td.characterImage img {
   
 #form {
     display: flex;
-    flex-direction: column;
+    text-align: center;
     justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    margin: auto;
+}
+
+.buttons-option{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+#idUsuario {
     text-align: center;
 }

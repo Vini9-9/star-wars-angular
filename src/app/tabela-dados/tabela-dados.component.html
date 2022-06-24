@@ -1,10 +1,10 @@
 <div id="form">
-  <label id="example-radio-group-label">Pick what do you want do fo</label>
+  <label id="example-radio-group-label">Pick what do you want do</label>
   <mat-radio-group
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
     [(ngModel)]="optionSelected">
-    <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+    <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option" (click)="clicou(option)">
       {{option}}
     </mat-radio-button>
   </mat-radio-group>
@@ -12,17 +12,26 @@
 </div>
 
 
-<!-- <form (ngSubmit)="atualizar()" id="form">
-  <input id="idUsuario" name="idUsuario" type="number" [(ngModel)]="idUsuario" #name="ngModel" placeholder="Insira o id"/>
-  <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
-  <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
-  <button type="submit">
-    Salvar
-  </button>
-  <button type="button" (click)="limpar()">
-    Limpar
-  </button>
-</form> -->
+<p *ngIf="optionSelected == 'Create'">Forms Create</p>
+<p *ngIf="optionSelected == 'Delete'">Forms Delete</p>
+<div *ngIf="optionSelected == 'Update'">
+  <form (ngSubmit)="atualizar()" id="form">
+    <label>Forms Update</label>
+    <input id="idUsuario" name="idUsuario" type="number" [(ngModel)]="idUsuario" #name="ngModel" placeholder="Insira o id"/>
+    <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
+    <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
+    <div class="buttons-option">
+      <button type="submit">
+        Salvar
+      </button>
+      <button type="button" (click)="limpar()">
+        Limpar
+      </button>
+    </div>
+  </form>
+</div>
+
+
 
 <h1 id="title"> List of users of system </h1>
 <div class="content">
