@@ -15,17 +15,17 @@ export class UserService {
     return this.http.get<any>(this.userUrl);
     }
 
-    // public saveUser(usuario: User): Observable<any> {
-    //     console.log(usuario);
-    //     const body = JSON.stringify({nomeUsuario: usuario.nomeUsuario, idadeUsuario: usuario.idadeUsuario});
+    public saveUser(usuario: User): Observable<any> {
+        console.log(usuario);
+        const body = JSON.stringify(usuario);
     
-    //     return this.http.request('POST', this.userUrl, {
-    //       headers: new HttpHeaders({
-    //         'Content-Type': 'application/json'
-    //       }),
-    //       body: body
-    //     })
-    //   }
+        return this.http.request('POST', this.userUrl, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+          }),
+          body: body
+        })
+      }
     
       public updateUser(usuario: User): Observable<any> {
         const body = JSON.stringify(usuario);

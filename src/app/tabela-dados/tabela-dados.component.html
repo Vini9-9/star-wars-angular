@@ -4,7 +4,7 @@
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
     [(ngModel)]="optionSelected">
-    <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option" (click)="clicou(option)">
+    <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
       {{option}}
     </mat-radio-button>
   </mat-radio-group>
@@ -12,7 +12,22 @@
 </div>
 
 
-<p *ngIf="optionSelected == 'Create'">Forms Create</p>
+<div *ngIf="optionSelected == 'Create'">
+  
+  <form (ngSubmit)="criar()" id="form">
+    <label>Forms Create</label>
+    <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
+    <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
+    <div class="buttons-option">
+      <button type="submit">
+        Salvar
+      </button>
+      <button type="button" (click)="limpar()">
+        Limpar
+      </button>
+    </div>
+  </form>
+</div>
 <p *ngIf="optionSelected == 'Delete'">Forms Delete</p>
 <div *ngIf="optionSelected == 'Update'">
   <form (ngSubmit)="atualizar()" id="form">

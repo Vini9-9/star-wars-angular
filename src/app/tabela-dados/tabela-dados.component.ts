@@ -52,7 +52,7 @@ export class TabelaDadosComponent implements OnInit{
     this.userService.updateUser(usuario).subscribe
     (
       resposta => {
-        alert("Usuario Salvo!")
+        alert("Usuario Atualizado!")
       }, errors => {
         console.log('deu ruim:');
         console.log(errors);
@@ -64,6 +64,24 @@ export class TabelaDadosComponent implements OnInit{
     this.idUsuario = 0;
     this.nomeUsuario ='';
     this.emailUsuario ='';
+  }
+
+  criar() {
+    const novoUsuario:User = {
+      id: this.idUsuario,
+      name: this.nomeUsuario,
+      email: this.emailUsuario,
+      password: '123'
+    }
+    this.userService.saveUser(novoUsuario).subscribe
+    (
+      resposta => {
+        alert("Usuario Salvo!")
+      }, errors => {
+        console.log('deu ruim:');
+        console.log(errors);
+      }
+    );
   }
 
 }
