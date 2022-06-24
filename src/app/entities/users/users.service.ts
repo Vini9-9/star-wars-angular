@@ -42,7 +42,7 @@ export class UserService {
   public deleteUser(id: number): Observable<any> {
     const body = JSON.stringify({id: id});
 
-    return this.http.request('DELETE', this.userUrl, {
+    return this.http.request('DELETE', this.userUrl + 'admin', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
