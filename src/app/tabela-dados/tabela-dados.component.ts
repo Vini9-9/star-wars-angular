@@ -25,6 +25,9 @@ export class TabelaDadosComponent implements OnInit{
     email: '',
   };
 
+  options: string[] = ['Create', 'Update', 'Delete'];
+  optionSelected: string | undefined;
+
   constructor(private userService: UserService) { 
     
   }
@@ -62,4 +65,5 @@ export class TabelaDadosComponent implements OnInit{
     this.nomeUsuario ='';
     this.emailUsuario ='';
   }
+
 }

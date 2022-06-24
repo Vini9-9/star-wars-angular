@@ -1,4 +1,18 @@
-<form (ngSubmit)="atualizar()" id="form">
+<div id="form">
+  <label id="example-radio-group-label">Pick what do you want do fo</label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="optionSelected">
+    <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option">
+      {{option}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div>Your option selected is: <b> {{optionSelected}} </b></div>
+</div>
+
+
+<!-- <form (ngSubmit)="atualizar()" id="form">
   <input id="idUsuario" name="idUsuario" type="number" [(ngModel)]="idUsuario" #name="ngModel" placeholder="Insira o id"/>
   <input id="nomeUsuario" name="nomeUsuario" type="text" [(ngModel)]="nomeUsuario" #name="ngModel" placeholder="Insira o nome"/>
   <input id="emailUsuario" name="emailUsuario" type="text" [(ngModel)]="emailUsuario" #name="ngModel" placeholder="Insira o email"/>
@@ -8,7 +22,7 @@
   <button type="button" (click)="limpar()">
     Limpar
   </button>
-</form>
+</form> -->
 
 <h1 id="title"> List of users of system </h1>
 <div class="content">

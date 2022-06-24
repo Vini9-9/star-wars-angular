@@ -29,3 +29,22 @@ td.characterImage img {
     align-content: center;
     justify-content: center;
 }
+
+.example-radio-group {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
