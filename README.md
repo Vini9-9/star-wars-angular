@@ -12,7 +12,7 @@ Integração API externa:
 
 Integração API local:
 - [X] Ler usuários da minha api de star wars;
-- [ ] Criar usuários para minha api de star wars;
+- [X] Criar usuários para minha api de star wars;
 - [X] Atualizar usuários da minha api de star wars;
 - [ ] Deletar usuários da minha api de star wars;
 
