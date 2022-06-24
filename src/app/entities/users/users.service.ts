@@ -9,7 +9,7 @@ import { User } from './users.model';
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    userUrl = 'http://localhost:8080/api/user';
+    userUrl = 'http://localhost:8080/api/user/';
 
     getAllUsers(){
     return this.http.get<any>(this.userUrl);
@@ -30,9 +30,9 @@ export class UserService {
       public updateUser(usuario: User): Observable<any> {
         const body = JSON.stringify(usuario);
     
-        return this.http.request('PUT', this.userUrl + '/' + usuario.id, {
+        return this.http.request('PUT', this.userUrl , {
           headers: new HttpHeaders({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           }),
           body: body
         })

@@ -14,17 +14,15 @@ export class TabelaDadosComponent implements OnInit{
     'id',
     'name',
     'email',
-    'password'
   ];
 
+  idUsuario = 0;
   nomeUsuario ='';
   emailUsuario ='';
-  senhaUsuario = '';
   usuario: User = {
-    id: 1,
+    id: 0,
     name: '',
     email: '',
-    password: ''
   };
 
   constructor(private userService: UserService) { 
@@ -44,25 +42,24 @@ export class TabelaDadosComponent implements OnInit{
 
   atualizar():void{
     const usuario:User = {
-      id: 1,
+      id: this.idUsuario,
       name: this.nomeUsuario,
       email: this.emailUsuario,
-      password: this.senhaUsuario
     }
-    alert(this.nomeUsuario + ' ' + this.emailUsuario + ' ' + this.senhaUsuario)
-    // this.userService.updateUser(usuario).subscribe
-    // (
-    //   resposta => {
-    //     alert("Usuario Salvo!")
-    //   }, errors => {
-    //     console.log('deu ruim: '+ errors);
-    //   }
-    // );
+    this.userService.updateUser(usuario).subscribe
+    (
+      resposta => {
+        alert("Usuario Salvo!")
+      }, errors => {
+        console.log('deu ruim:');
+        console.log(errors);
+      }
+    );
   }
 
   limpar():void{
+    this.idUsuario = 0;
     this.nomeUsuario ='';
     this.emailUsuario ='';
-    this.senhaUsuario ='';
   }
 }
