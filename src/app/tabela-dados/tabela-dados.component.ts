@@ -20,7 +20,6 @@ export class TabelaDadosComponent implements OnInit{
   nomeUsuario ='';
   emailUsuario ='';
   usuario: User = {
-    id: 0,
     name: '',
     email: '',
   };

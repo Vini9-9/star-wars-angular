@@ -1,5 +1,5 @@
 export interface User extends Object{
-    id: number;
+    id?: number;
     name: string;
     email: string;
     password?: string;
